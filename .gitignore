@@ -1,0 +1,7 @@
+node_modules/
+coverage/
+helm/**/charts
+helm/**/requirements.lock
+dist/
+package-lock.json
+audio.raw
