@@ -4,12 +4,13 @@
     "description": "",
     "scripts": {
         "start": "node src/index.js",
-        "dev": "DEBUG=* nodemon --watch src --exec babel-node -- src"
+        "dev": "nodemon --watch src --exec babel-node -- src"
     },
     "author": "grandsys",
     "license": "ISC",
     "dependencies": {
         "bottender": "^0.14.34",
+        "nodejs-state-machine": "^2.0.0",
         "uuid": "^3.2.1"
     },
     "devDependencies": {
