@@ -16,16 +16,14 @@ const bot = new Bot({
 
 // Bot will use memory session store as default if you don't assign sessionStore.
 bot.setInitialState({
-    payment: false,
-    email: false,
-    address: false
+    faq: null
 });
 
-const faq = new StateMachine('start', {
+const newFaq = () => new StateMachine('start', {
     transitions: [
         {
             name: 'applyPayment',
-            from: ['start', '__label__payment'],
+            from: ['start', '__label__payment', '__label__creditcard'],
             to: '__label__payment'
         },
         { name: 'applyEmail', from: '__label__payment', to: 'start' },
@@ -72,7 +70,11 @@ const faq = new StateMachine('start', {
     }
 });
 bot.onEvent(async context => {
+    if (context.state.faq === null) {
+        context.setState({ faq: newFaq()})
+    }
     const { text: label } = context.event;
+    const { faq } = context.state;
     const labelSlot = {
         __label__payment: async () => await faq.applyPayment(),
         __label__email: async () => await faq.applyEmail(),
