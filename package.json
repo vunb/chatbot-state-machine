@@ -1,12 +1,11 @@
 {
-    "name": "grandsys-chatbot",
+    "name": "chatbot-state-machine",
     "version": "0.1.0",
     "description": "",
     "scripts": {
         "start": "node src/index.js",
         "dev": "nodemon --watch src --exec babel-node -- src"
     },
-    "author": "grandsys",
     "license": "ISC",
     "dependencies": {
         "bottender": "^0.14.34",

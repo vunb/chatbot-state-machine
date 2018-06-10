@@ -5,10 +5,6 @@ import { Bot, ConsoleBot, MemorySessionStore } from 'bottender';
 import { createServer } from 'bottender/express';
 import WebConnector from './bot/WebConnector';
 import config from './config';
-// const fastTextPath = path.resolve(
-//     '/home/will/UData/fastText/workspace',
-//     'fasttext'
-// );
 
 const bot = new Bot({
     connector: new WebConnector({ fallbackMethods: true }),
